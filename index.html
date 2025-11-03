@@ -22,15 +22,22 @@
     header {
       background: #111;
       color: #fff;
-      padding: 1.5rem 5%;
+      padding: 1.2rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 10;
     }
 
     header h1 {
       font-size: 1.8rem;
       letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -42,6 +49,24 @@
 
     nav a:hover {
       color: #ffce00;
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 25px;
+      height: 20px;
+    }
+
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      margin: 3px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
 
     /* Hero Section */
@@ -66,6 +91,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
+      padding: 0 1rem;
     }
 
     .hero h2 {
@@ -191,23 +217,46 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive Adjustments */
+    /* Responsive Styles */
     @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 1rem 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 1rem 0;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero {
+        height: 70vh;
+      }
+
       .hero h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
 
       .hero p {
         font-size: 1rem;
-      }
-
-      header {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav a {
-        margin: 0 0.8rem;
       }
     }
   </style>
@@ -217,7 +266,12 @@
   <!-- Header -->
   <header>
     <h1>Road Roam</h1>
-    <nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navbar">
       <a href="#gallery">Our Vehicles</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -232,7 +286,7 @@
     </div>
   </section>
 
-  <!-- Gallery Section (Card Layout) -->
+  <!-- Gallery Section -->
   <section class="gallery" id="gallery">
     <h3>Our Vehicle Collection</h3>
     <div class="gallery-grid">
@@ -241,11 +295,10 @@
         <div class="card-content">
           <h4>Toyota Innova Crysta</h4>
           <p>Spacious and comfortable — perfect for family trips and long drives.</p>
-          <a href="#contact">Contact Below</a>
+          <a href="#contact">Book Now</a>
         </div>
       </div>
 
-     
   </section>
 
   <!-- Contact Section -->
@@ -259,5 +312,16 @@
   <footer>
     © 2025 Road Roam. All Rights Reserved.
   </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('navbar');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
