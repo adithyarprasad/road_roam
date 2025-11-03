@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Road Roam - Car Rental Service</title>
+  <style>
+    /* Reset & Basic Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffce00;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('images/hero-car.jpg') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero a {
+      background: #ffce00;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .hero a:hover {
+      background: #e6b800;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .gallery h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 3rem 5%;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Road Roam</h1>
+    <nav>
+      <a href="#gallery">Our Vehicles</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Explore the Road with Road Roam</h2>
+      <p>Reliable cars. Affordable rentals. Unforgettable journeys.</p>
+      <a href="#contact">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <h3>Our Vehicle Collection</h3>
+    <div class="gallery-grid">
+      <img src="images/car1.jpg" alt="Car 1" />
+      
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h3>Contact Us</h3>
+    <p><strong>Phone:</strong> +91 98765 43210</p>
+    <p><strong>Email:</strong> contact@roadroam.com</p>
+    <p><strong>Location:</strong> Bengaluru, India</p>
+  </section>
+
+  <footer>
+    © 2025 Road Roam. All Rights Reserved.
+  </footer>
+</body>
+</html>
