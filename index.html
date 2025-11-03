@@ -3,305 +3,348 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Road Roam - Car Rental Service</title>
+  <title>Road Roam - Premium Car Rentals</title>
   <style>
-    /* Reset & Basic Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      color: #333;
-      background-color: #f9f9f9;
+      background: #0b0b0b;
+      color: #fff;
     }
 
     /* Header */
     header {
-      background: #111;
-      color: #fff;
-      padding: 1.2rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      z-index: 10;
+      padding: 1rem 6%;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
     }
 
     header h1 {
-      font-size: 1.8rem;
+      color: #ffcc00;
+      font-weight: 700;
       letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 1.5rem;
+      margin-left: 2rem;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #ffce00;
-    }
-
-    /* Hamburger Icon */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      cursor: pointer;
-      width: 25px;
-      height: 20px;
-    }
-
-    .menu-toggle span {
-      background: #fff;
-      height: 3px;
-      margin: 3px 0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+      color: #ffcc00;
     }
 
     /* Hero Section */
     .hero {
-      background: url('../road_roam/innova-crysta-exterior-left-front-three-quarter.avif') center/cover no-repeat;
-      height: 90vh;
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
       align-items: center;
-      color: white;
-      text-align: center;
+      justify-content: space-between;
+      padding: 8rem 6% 5rem;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #111 50%, #1a1a1a 100%);
       position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
     }
 
     .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 1rem;
+      flex: 1;
+      max-width: 500px;
+      z-index: 2;
     }
 
-    .hero h2 {
+    .hero-content h2 {
       font-size: 3rem;
-      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffcc00;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .hero-content p {
+      margin: 1.2rem 0 2rem;
+      font-size: 1.1rem;
+      color: #ddd;
     }
 
-    .hero a {
-      background: #ffce00;
+    .hero-content a {
+      background: #ffcc00;
       color: #000;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .hero a:hover {
-      background: #e6b800;
-    }
-
-    /* Gallery Section */
-    .gallery {
-      padding: 4rem 5%;
-      text-align: center;
-    }
-
-    .gallery h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #222;
-    }
-
-    /* Card Grid Layout */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      justify-items: center;
-    }
-
-    /* Card Styling */
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      max-width: 350px;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 1.2rem;
-    }
-
-    .card-content h4 {
-      font-size: 1.3rem;
-      color: #111;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-content p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-
-    .card-content a {
-      background: #ffce00;
-      color: #000;
-      text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 4px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
       font-weight: 600;
+      text-decoration: none;
       transition: all 0.3s ease;
-      display: inline-block;
     }
 
-    .card-content a:hover {
+    .hero-content a:hover {
       background: #e6b800;
       transform: translateY(-2px);
     }
 
-    /* Contact Section */
-    .contact {
-      padding: 3rem 5%;
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-image img {
+      width: 90%;
+      max-width: 550px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 204, 0, 0.2);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Curved Divider */
+    .curve {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+    }
+
+    .curve::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      top: 0;
+      left: -25%;
+      background: #f9f9f9;
+      border-radius: 50%;
+    }
+
+    /* Vehicle Section */
+    .vehicles {
+      background: #f9f9f9;
+      color: #111;
+      text-align: center;
+      padding: 5rem 6%;
+    }
+
+    .vehicles h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .vehicles h3::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #ffcc00;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .car-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .car-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .car-info {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .car-info h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #ffcc00;
+    }
+
+    .car-info p {
+      font-size: 0.95rem;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+
+    .car-info a {
+      display: inline-block;
+      background: #ffcc00;
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .car-info a:hover {
       background: #111;
       color: #fff;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, #111, #000);
+      padding: 4rem 6%;
       text-align: center;
     }
 
     .contact h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      color: #ffcc00;
       margin-bottom: 1rem;
     }
 
     .contact p {
-      margin: 0.5rem 0;
       font-size: 1.1rem;
+      color: #ddd;
+      margin: 0.5rem 0;
     }
 
     footer {
       background: #000;
-      color: #aaa;
+      color: #999;
       text-align: center;
-      padding: 1rem;
+      padding: 1.2rem;
       font-size: 0.9rem;
     }
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-      }
+    footer span {
+      color: #ffcc00;
+    }
 
-      nav {
-        display: none;
+    /* Floating CTA */
+    .cta-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #ffcc00;
+      color: #000;
+      padding: 0.9rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #e6b800;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
         flex-direction: column;
-        width: 100%;
-        background: #111;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        padding: 1rem 0;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        margin: 1rem 0;
         text-align: center;
       }
 
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero {
-        height: 70vh;
+      .hero-content {
+        margin-bottom: 2rem;
       }
 
       .hero h2 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <h1>Road Roam</h1>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="navbar">
-      <a href="#gallery">Our Vehicles</a>
+    <nav>
+      <a href="#vehicles">Our Cars</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h2>Explore the Road with Road Roam</h2>
-      <p>Reliable cars. Affordable rentals. Unforgettable journeys.</p>
-      <a href="#contact">Book Now</a>
+      <h2>Luxury on Every Road</h2>
+      <p>Choose your perfect car and hit the road in style. Experience comfort, class, and convenience with Road Roam.</p>
+      <a href="#vehicles">Explore Cars</a>
+    </div>
+    <div class="hero-image">
+      <img src="../road_roam/innova-crysta-exterior-left-front-three-quarter.avif" alt="Luxury Car" />
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="gallery" id="gallery">
-    <h3>Our Vehicle Collection</h3>
-    <div class="gallery-grid">
-      <div class="card">
+  <div class="curve"></div>
+
+  <section class="vehicles" id="vehicles">
+    <h3>Our Premium Fleet</h3>
+    <div class="vehicle-grid">
+      <div class="car-card">
         <img src="../road_roam/innova-crysta-exterior-left-front-three-quarter.avif" alt="Innova Crysta" />
-        <div class="card-content">
+        <div class="car-info">
           <h4>Toyota Innova Crysta</h4>
-          <p>Spacious and comfortable — perfect for family trips and long drives.</p>
+          <p>Comfortable and elegant, ideal for families and long trips.</p>
           <a href="#contact">Book Now</a>
         </div>
       </div>
 
+      <div class="car-card">
+        <img src="../road_roam/fortuner.jpg" alt="Toyota Fortuner" />
+        <div class="car-info">
+          <h4>Toyota Fortuner</h4>
+          <p>Powerful SUV for your adventurous escapes and rugged terrains.</p>
+          <a href="#contact">Book Now</a>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <img src="../road_roam/swift.jpg" alt="Swift" />
+        <div class="car-info">
+          <h4>Maruti Swift</h4>
+          <p>Perfect for urban rides with excellent mileage and comfort.</p>
+          <a href="#contact">Book Now</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
   <section class="contact" id="contact">
     <h3>Contact Us</h3>
     <p><strong>Phone:</strong> +91 98765 43210</p>
@@ -310,18 +353,9 @@
   </section>
 
   <footer>
-    © 2025 Road Roam. All Rights Reserved.
+    © 2025 <span>Road Roam</span>. All Rights Reserved.
   </footer>
 
-  <!-- JavaScript for Mobile Menu -->
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('navbar');
-
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      toggle.classList.toggle('open');
-    });
-  </script>
+  <a href="#contact" class="cta-btn">Book a Ride</a>
 </body>
 </html>
